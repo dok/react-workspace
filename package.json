@@ -1,0 +1,69 @@
+{
+  "name": "react-workspace",
+  "version": "0.1.0",
+  "description": "A component with a resizable and splittable workspace. A panel with draggable tabs.",
+  "main": "lib/index.js",
+  "scripts": {
+    "clean": "rimraf lib dist",
+    "dev": "babel src --out-dir lib --watch",
+    "build": "babel src --out-dir lib",
+    "build:umd": "webpack src/index.js dist/react-workspace.js && NODE_ENV=production webpack src/index.js dist/react-workspace.min.js",
+    "lint": "eslint src test examples",
+    "test": "NODE_ENV=test mocha",
+    "test:watch": "NODE_ENV=test mocha --watch",
+    "test:cov": "babel-node ./node_modules/.bin/isparta cover ./node_modules/.bin/_mocha",
+    "example": "node example/server.js",
+    "prepublish-example": "npm run lint && npm run test && npm run clean && npm run build && npm run build:umd"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dok/react-workspace.git"
+  },
+  "keywords": [
+    "panel", "react", "pane", "tabs", "split", "workspace"
+  ],
+  "author": "dok",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dok/react-workspace/issues"
+  },
+  "homepage": "https://github.com/dok/react-workspace",
+  "devDependencies": {
+    "babel": "^5.5.8",
+    "babel-core": "^5.6.18",
+    "babel-eslint": "^3.1.15",
+    "babel-loader": "^5.1.4",
+    "chai": "^3.5.0",
+    "eslint": "^0.23",
+    "eslint-config-airbnb": "0.0.6",
+    "eslint-plugin-react": "^2.3.0",
+    "expect": "^1.6.0",
+    "isparta": "^3.0.3",
+    "mocha": "^2.2.5",
+    "rimraf": "^2.3.4",
+    "webpack": "^1.9.11",
+    "babel-polyfill": "^6.23.0",
+    "node-libs-browser": "^0.5.2",
+    "react-hot-loader": "^1.2.7",
+    "webpack-dev-server": "^1.9.0"
+  },
+  "dependencies": {
+    "css-loader": "^0.28.0",
+    "invariant": "^2.0.0",
+    "lodash": "^4.17.4",
+    "node-sass": "^4.5.2",
+    "prop-types": "^15.5.8",
+    "react": "^15.5.4",
+    "react-dnd": "^2.3.0",
+    "react-dnd-html5-backend": "^2.3.0",
+    "react-dnd-touch-backend": "^0.3.9",
+    "react-dom": "^15.5.4",
+    "react-draggable": "^2.2.5",
+    "react-redux": "^5.0.4",
+    "react-resizable": "^1.6.0",
+    "react-split-pane": "^0.1.63",
+    "react-tabs": "^0.8.3",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.1"
+  }
+}
