@@ -7,21 +7,19 @@ export default class App extends Component {
 
     const root = {
       axis: 'x',
+      size: 50,
       children: [
         {
           size: 50,
           axis: 'y',
           children: [
             {
-              size: 50
             },
             {
-              size: 50
             }
           ]
         },
         {
-          size: 50
         }
       ]
     };
