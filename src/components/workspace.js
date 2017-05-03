@@ -107,6 +107,7 @@ class Workspace extends Component {
         return this.renderNode(child, childPath);
       });
     }
+
     const size = node.size ? `${node.size}%` : 200;
 
     return (
@@ -121,6 +122,7 @@ class Workspace extends Component {
     const axis = node.axis;
     // const root = this.renderNode(node, axis);
     // const newRoot = Manager.split(this.state.root, path, axis, multiplier);
+
     const tree = Manager.buildTree(node,this.state.components, this.state.tabs);
     const root = this.renderNode(tree);
 

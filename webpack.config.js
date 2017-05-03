@@ -35,7 +35,7 @@ module.exports = {
     ]
   },
   output: {
-    library: 'library-boilerplate',
+    library: 'react-workspace',
     libraryTarget: 'umd'
   },
   plugins: plugins,

@@ -1,4 +1,23 @@
 {
-  "stage": 0,
-  "loose": "all"
+  "presets": [
+    ["env", { "targets": { "node": 6 }, "useBuiltIns": true }],
+    "stage-1",
+    "react"
+  ],
+  "plugins": ["add-module-exports", "transform-decorators-legacy"],
+  "env": {
+    "production": {
+      "presets": ["react-optimize"],
+      "plugins": ["babel-plugin-dev-expression"]
+    },
+    "development": {
+      "plugins": [
+        "transform-decorators-legacy",
+        "transform-class-properties",
+        "transform-es2015-classes",
+        "tcomb"
+      ],
+      "presets": ["react-hmre"]
+    }
+  }
 }
