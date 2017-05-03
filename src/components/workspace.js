@@ -33,6 +33,10 @@ class Workspace extends Component {
     });
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({...nextProps});
+  }
+
   // {
   //   x: [
   //     {
