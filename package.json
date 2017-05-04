@@ -1,6 +1,6 @@
 {
   "name": "react-workspaces",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A component with a resizable and splittable workspace. A panel with draggable tabs.",
   "main": "dist/react-workspace.js",
   "scripts": {
