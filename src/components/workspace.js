@@ -16,7 +16,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import DragSpan from './DragSpan';
 import TabList from './TabList';
 
-import '../styles/main.scss';
+import '../../styles/main.scss';
 
 // @connect(mapStateToProps, mapDispatchToProps)
 @DragDropContext(HTML5Backend)
