@@ -2,7 +2,7 @@
   "name": "react-workspaces",
   "version": "0.2.4",
   "description": "A component with a resizable and splittable workspace. A panel with draggable tabs.",
-  "main": "dist/react-workspace.js",
+  "main": "lib/index.js",
   "scripts": {
     "clean": "rimraf lib dist",
     "dev": "babel src --out-dir lib --watch",
@@ -75,12 +75,12 @@
     "sass-loader": "^6.0.3",
     "style-loader": "^0.16.1",
     "react": "^15.0",
-    "react-dom": "^15.0"
+    "react-dom": "^15.0",
+    "node-sass": "^4.5.2"
   },
   "dependencies": {
     "invariant": "^2.0.0",
     "lodash": "^4.17.4",
-    "node-sass": "^4.5.2",
     "prop-types": "^15.5.8",
     "react-dnd": "^2.3.0",
     "react-dnd-html5-backend": "^2.3.0",
