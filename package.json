@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rimraf lib dist",
     "dev": "babel src --out-dir lib --watch",
-    "build": "babel src --out-dir lib",
+    "build": "NODE_ENV=production babel src --out-dir lib",
     "build:umd": "webpack src/index.js dist/react-workspace.js && NODE_ENV=production webpack src/index.js dist/react-workspace.min.js",
     "lint": "eslint src test examples",
     "test": "NODE_ENV=test mocha",
@@ -65,7 +65,6 @@
     "webpack": "^1.9.11",
     "node-libs-browser": "^0.5.2",
     "react-hot-loader": "^1.2.7",
-    "webpack-dev-server": "^1.9.0"
   },
   "dependencies": {
     "css-loader": "^0.28.0",
