@@ -16,7 +16,9 @@ export default class Comp extends TabPanel {
     const node = ReactDOM.findDOMNode(this);
     node.style.height = null;
     const {height} = visibleArea(node);
-    node.style.height = `${height}px`;
+    if(height) {
+      node.style.height = `${height}px`;
+    }
   }
 
   componentDidMount() {
