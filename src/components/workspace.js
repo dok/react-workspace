@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import Manager from '../manager';
 import { ResizableBox } from 'react-resizable';
@@ -6,8 +7,7 @@ import _ from 'lodash';
 import Draggable from 'react-draggable';
 import SplitPane from 'react-split-pane';
 
-import { Tab, Tabs, TabPanel } from 'react-tabs';
-// import { connect } from 'react-redux';
+import { Tab, Tabs } from 'react-tabs';
 
 import { dragSource, dragTarget } from '../utils';
 import { DragDropContext, DragSource, DropTarget } from 'react-dnd';
@@ -15,10 +15,10 @@ import HTML5Backend from 'react-dnd-html5-backend';
 
 import DragSpan from './DragSpan';
 import TabList from './TabList';
+import TabPanel from './TabPanel';
 
 import '../../styles/main.scss';
 
-// @connect(mapStateToProps, mapDispatchToProps)
 @DragDropContext(HTML5Backend)
 class Workspace extends Component {
   constructor(props) {
@@ -124,6 +124,7 @@ class Workspace extends Component {
   render() {
     const node = this.state.root;
     const axis = node.axis;
+
     // const root = this.renderNode(node, axis);
     // const newRoot = Manager.split(this.state.root, path, axis, multiplier);
 
@@ -136,6 +137,7 @@ class Workspace extends Component {
       </div>
     );
   }
+
 }
 
 Workspace.propTypes = {

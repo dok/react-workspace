@@ -2,6 +2,10 @@
   .react-tabs {
     [role=tablist] {
       min-height: 32px;
+      margin: 0;
+    }
+    [role=tabpanel] {
+      overflow: scroll;
     }
     width: 100%;
     height: 100%;
