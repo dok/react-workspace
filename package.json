@@ -13,6 +13,7 @@
     "test:watch": "NODE_ENV=test mocha --watch --compilers js:babel-register --require ignore-styles test",
     "test:cov": "babel-node ./node_modules/.bin/isparta cover ./node_modules/.bin/_mocha",
     "example": "node example/server.js",
+    "prepublish": "npm run build && npm run build:umd",
     "prepublish-example": "npm run lint && npm run test && npm run clean && npm run build && npm run build:umd"
   },
   "repository": {
