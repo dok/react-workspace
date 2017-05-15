@@ -13,12 +13,16 @@ export default class Comp extends TabPanel {
   }
 
   onResize() {
-    const node = ReactDOM.findDOMNode(this);
-    node.style.height = null;
-    const {height} = visibleArea(node);
-    if(height) {
-      node.style.height = `${height}px`;
+    if(this.mounted) {
+      const node = ReactDOM.findDOMNode(this);
+      node.style.height = null;
+      const {height} = visibleArea(node);
+      if(height) {
+        node.style.height = `${height}px`;
+      }
+
     }
+
   }
 
   componentDidMount() {
@@ -27,5 +31,9 @@ export default class Comp extends TabPanel {
       const node = ReactDOM.findDOMNode(this);
       elementResizeEvent(node, this.onResize.bind(this));
     }
+    this.mounted = true;
+  }
+  componentWillUnmount() {
+    this.mounted = false;
   }
 }
