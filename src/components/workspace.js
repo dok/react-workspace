@@ -65,13 +65,13 @@ class Workspace extends Component {
     }
   }
 
-  renderTabs(components, path) {
+  renderTabs(components, path, index) {
     const tabs = this.state.tabs;
     const tabHeaders = _.map(components, (component, index) => {
       const tabName = tabs[path][index];
       // const componentPath = `${path}[${index}]`;
       return (
-        <Tab>
+        <Tab key={index}>
           <DragSpan path={path} index={index}>
             {tabName}
           </DragSpan>
@@ -80,7 +80,7 @@ class Workspace extends Component {
     });
     const tabPanels = _.map(components, (component, index) => {
       return (
-        <TabPanel>
+        <TabPanel key={index}>
           {component}
         </TabPanel>
       );
@@ -97,9 +97,9 @@ class Workspace extends Component {
     );
   }
 
-  renderNode(node, path='') {
+  renderNode(node, path='', index=0) {
     if(_.isArray(node.component)) {
-      return this.renderTabs(node.component, path);
+      return this.renderTabs(node.component, path, index);
     } else if(node.component) {
       return node.component;
     }
@@ -114,14 +114,14 @@ class Workspace extends Component {
         } else {
           childPath = `${path}.children[${index}]`;
         }
-        return this.renderNode(child, childPath);
+        return this.renderNode(child, childPath, index);
       });
     }
 
     const size = node.size ? `${node.size}%` : 200;
 
     return (
-      <SplitPane split={split} minSize={100} defaultSize={size}>
+      <SplitPane key={`splitpane-${path}-${index}`} split={split} minSize={100} defaultSize={size}>
         {children}
       </SplitPane>
     );

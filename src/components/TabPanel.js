@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import { TabPanel } from 'react-tabs';
 import _ from 'lodash';
@@ -7,7 +8,9 @@ import visibleArea from '../visibleArea';
 
 const DEFAULT_CLASS = 'react-tabs__tab-panel';
 
-export default class Comp extends TabPanel {
+// console.log(TabPanel.propTypes);
+
+class Comp extends TabPanel {
   constructor(props) {
     super(props);
   }
@@ -37,3 +40,9 @@ export default class Comp extends TabPanel {
     this.mounted = false;
   }
 }
+
+// Comp.propTypes = _.assign({
+//   key: PropTypes.number
+// }, TabPanel.propTypes);
+
+export default Comp;
