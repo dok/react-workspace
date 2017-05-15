@@ -51,7 +51,7 @@ const tabs = {
 }
 
 const workspace = (
-  <Workspace root={root} tabs={tabs} components={components}/>
+  <Workspace onChange={(newRoot, newTabs) => {}} root={root} tabs={tabs} components={components}/>
 );
 
 ```
