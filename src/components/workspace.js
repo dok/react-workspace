@@ -59,6 +59,10 @@ class Workspace extends Component {
     this.setState({
       tabs: newTabs
     });
+
+    if(_.isFunction(this.props.onChange)) {
+      this.props.onChange.call(this, this.state.root, newTabs);
+    }
   }
 
   renderTabs(components, path) {
@@ -83,7 +87,9 @@ class Workspace extends Component {
     });
     return (
       <Tabs>
-        <TabList path={path} move={this.move.bind(this)} tabs={tabs}>
+        <TabList path={path} 
+                 move={this.move.bind(this)} 
+                 tabs={tabs}>
           {tabHeaders}
         </TabList>
         {tabPanels}
@@ -142,7 +148,8 @@ class Workspace extends Component {
 
 Workspace.propTypes = {
   root: PropTypes.object.isRequired,
-  components: PropTypes.object.isRequired
+  components: PropTypes.object.isRequired,
+  onChange: PropTypes.func
 };
 
 export default Workspace;
