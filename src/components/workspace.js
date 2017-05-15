@@ -63,6 +63,7 @@ class Workspace extends Component {
     if(_.isFunction(this.props.onChange)) {
       this.props.onChange.call(this, this.state.root, newTabs);
     }
+
   }
 
   renderTabs(components, path, index) {

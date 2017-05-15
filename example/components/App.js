@@ -4,10 +4,11 @@ import '../styles/main.scss';
 import '../app.scss';
 
 export default class App extends Component {
-  // onChange(root, tabs) {
-  //   console.log('new root: ', root);
-  //   console.log('tabs: ', tabs);
-  // }
+  onChange(root, tabs) {
+    console.log('new root: ', root);
+    console.log('tabs: ', tabs);
+  }
+
   render() {
     const root = {
       axis: 'x',

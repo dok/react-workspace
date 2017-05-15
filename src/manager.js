@@ -159,7 +159,7 @@ class Manager {
       return node;
     }
 
-    return walk(root);
+    return walk(_.cloneDeep(root));
   }
 }
 
