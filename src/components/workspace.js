@@ -19,11 +19,32 @@ import TabPanel from './TabPanel';
 
 import '../../styles/main.scss';
 
+class Events {
+  constructor() {
+    this.listeners = {};
+  }
+
+  on(key, fn) {
+    if(this.listeners[key]) {
+      this.listeners[key].push(fn);
+    } else {
+      this.listeners[key] = [fn];
+    }
+  }
+
+  trigger(key) {
+    _.each(this.listeners[key], (fn) => {
+      fn();
+    });
+  }
+}
+
 @DragDropContext(HTML5Backend)
 class Workspace extends Component {
   constructor(props) {
     super(props);
     this.state = {...props};
+    this.pubsub = new Events();
   }
 
   split(path, axis, multiplier) {
@@ -36,6 +57,7 @@ class Workspace extends Component {
   componentWillReceiveProps(nextProps) {
     this.setState({...nextProps});
   }
+
 
   // {
   //   x: [
@@ -66,6 +88,10 @@ class Workspace extends Component {
 
   }
 
+  onResize() {
+    this.pubsub.trigger('resize');
+  }
+
   renderTabs(components, path, index) {
     const tabs = this.state.tabs;
     const tabHeaders = _.map(components, (component, index) => {
@@ -81,7 +107,7 @@ class Workspace extends Component {
     });
     const tabPanels = _.map(components, (component, index) => {
       return (
-        <TabPanel key={index}>
+        <TabPanel key={index} pubsub={this.pubsub}>
           {component}
         </TabPanel>
       );

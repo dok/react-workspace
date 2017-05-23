@@ -18,21 +18,30 @@ class Comp extends TabPanel {
   onResize() {
     if(this.mounted) {
       const node = ReactDOM.findDOMNode(this);
-      node.style.height = null;
-      const {height} = visibleArea(node);
+      const parent = node.parentNode.parentNode;
+      const prev = parseInt(parent.style.height, 10);
+      const {height} = visibleArea(parent);
+
+      if(prev === height || height === 0) {
+        return;
+      }
       if(height) {
         node.style.height = `${height}px`;
       }
-
     }
 
   }
 
   componentDidMount() {
     if( typeof window !== 'undefined' ) {
+      const fn = _.debounce(this.onResize.bind(this), 100);
+      this.props.pubsub.on('resize', fn);
       // const elementResizeEvent = require('../lib/element-resize-event');
       const node = ReactDOM.findDOMNode(this);
-      elementResizeEvent(node, this.onResize.bind(this));
+      // elementResizeEvent(node, this.onResize.bind(this));
+      elementResizeEvent(node, () => {
+        this.props.pubsub.trigger('resize');
+      });
     }
     this.mounted = true;
   }
