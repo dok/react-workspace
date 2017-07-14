@@ -26,7 +26,7 @@ class Comp extends TabPanel {
         return;
       }
       if(height) {
-        node.style.height = `${height}px`;
+        node.style.height = `${height - 32}px`;
       }
     }
 

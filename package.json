@@ -1,6 +1,6 @@
 {
   "name": "react-workspaces",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "A component with a resizable and splittable workspace. A panel with draggable tabs.",
   "main": "lib/index.js",
   "scripts": {
@@ -39,10 +39,10 @@
     "react-dom": "^0.14 || ^15.0.0-rc || ^15.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",
-    "css-loader": "^0.28.0",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-dev-expression": "^0.2.1",
     "babel-plugin-minify-dead-code-elimination": "^0.1.4",
@@ -61,6 +61,7 @@
     "babel-preset-stage-0": "^6.22.0",
     "babel-register": "^6.22.0",
     "chai": "^3.5.0",
+    "css-loader": "^0.28.0",
     "eslint": "^0.23",
     "eslint-config-airbnb": "0.0.6",
     "eslint-plugin-react": "^2.3.0",
@@ -69,15 +70,15 @@
     "isparta": "^3.0.3",
     "mocha": "^2.2.5",
     "node-libs-browser": "^0.5.2",
-    "react-hot-loader": "^1.2.7",
-    "rimraf": "^2.3.4",
-    "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.5",
-    "sass-loader": "^6.0.3",
-    "style-loader": "^0.16.1",
+    "node-sass": "^4.5.2",
     "react": "^15.0",
     "react-dom": "^15.0",
-    "node-sass": "^4.5.2"
+    "react-hot-loader": "^1.2.7",
+    "rimraf": "^2.3.4",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.1",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.5"
   },
   "dependencies": {
     "classnames": "^2.2.5",
